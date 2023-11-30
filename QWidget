@@ -3,7 +3,6 @@
 #include <QPushButton>
 #include <QGridLayout>
 #include <QLineEdit>
-
 class Calcolatore : public QWidget {
 public:
     Calcolatore(QWidget *parent = 0) : QWidget(parent) {
@@ -11,9 +10,7 @@ public:
         display = new QLineEdit();
         display->setAlignment(Qt::AlignRight);
         display->setReadOnly(true);
-
         QGridLayout *layout = new QGridLayout();
-
         // Aggiunta dei pulsanti al layout
         layout->addWidget(display, 0, 0, 1, 4);
         layout->addWidget(createButton("7"), 1, 0);
@@ -32,13 +29,10 @@ public:
         layout->addWidget(createButton("."), 4, 1);
         layout->addWidget(createButton("="), 4, 2);
         layout->addWidget(createButton("+"), 4, 3);
-
         setLayout(layout);
-
         // Connessione dei pulsanti al slot
         connectSignals();
     }
-
 private slots:
     // Slot per gestire i clic dei pulsanti
     void onButtonClicked() {
@@ -56,22 +50,18 @@ private slots:
             }
         }
     }
-
 private:
     QLineEdit *display;
-
     // Metodo per creare un pulsante con testo e collegarlo al slot
     QPushButton* createButton(const QString& text) {
         QPushButton *button = new QPushButton(text);
         connect(button, &QPushButton::clicked, this, &Calcolatore::onButtonClicked);
         return button;
     }
-
     // Metodo per valutare un'espressione matematica
     double eval(const QString& expression) {
         return QLocale().toDouble(expression);
     }
-
     // Metodo per connettere i segnali dei pulsanti al slot
     void connectSignals() {
         const QObjectList& buttons = children();
@@ -83,10 +73,8 @@ private:
         }
     }
 };
-
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
-
     Calcolatore calc;
     calc.setWindowTitle("Calcolatore");
     calc.show();
