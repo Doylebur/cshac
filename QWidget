@@ -45,39 +45,4 @@ private slots:
                 QString expression = display->text();
                 display->setText(QString::number(eval(expression)));
             } else {
-                // Aggiunge il testo del pulsante all'espressione corrente
-                display->setText(display->text() + buttonText);
-            }
-        }
-    }
-private:
-    QLineEdit *display;
-    // Metodo per creare un pulsante con testo e collegarlo al slot
-    QPushButton* createButton(const QString& text) {
-        QPushButton *button = new QPushButton(text);
-        connect(button, &QPushButton::clicked, this, &Calcolatore::onButtonClicked);
-        return button;
-    }
-    // Metodo per valutare un'espressione matematica
-    double eval(const QString& expression) {
-        return QLocale().toDouble(expression);
-    }
-    // Metodo per connettere i segnali dei pulsanti al slot
-    void connectSignals() {
-        const QObjectList& buttons = children();
-        for (QObject* obj : buttons) {
-            QPushButton* button = qobject_cast<QPushButton*>(obj);
-            if (button) {
-                connect(button, &QPushButton::clicked, this, &Calcolatore::onButtonClicked);
-            }
-        }
-    }
-};
-int main(int argc, char *argv[]) {
-    QApplication app(argc, argv);
-    Calcolatore calc;
-    calc.setWindowTitle("Calcolatore");
-    calc.show();
-
-    return app.exec();
-}
+                // Aggiunge il testo del 
