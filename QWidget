@@ -13,20 +13,7 @@ public:
         // ... (Your existing code)
 
         // Connessione dei pulsanti al slot
-        connectSignals();
-    }
-
-private slots:
-    // Slot per gestire i clic dei pulsanti
-    void onButtonClicked() {
-        QPushButton *senderButton = qobject_cast<QPushButton*>(sender());
-        if (senderButton) {
-            QString buttonText = senderButton->text();
-
-            if (buttonText == "=") {
-                // Calcola il risultato quando viene premuto il pulsante "="
-                QString expression = display->text();
-                display->setText(QString::number(eval(expression)));
+        connectSignmber(eval(expression)));
             } else {
                 // Aggiunge il testo del pulsante al display
                 display->setText(display->text() + buttonText);
