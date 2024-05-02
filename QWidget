@@ -9,17 +9,6 @@
 class Calcolatore : public QWidget {
     Q_OBJECT
 public:
-    Calcolatore(QWidget *parent = 0) : QWidget(parent) {
-        // ... (Your existing code)
-
-        // Connessione dei pulsanti al slot
-        connectSignmber(eval(expression)));
-            } else {
-                // Aggiunge il testo del pulsante al display
-                display->setText(display->text() + buttonText);
-            }
-        }
-    }
 
 private:
     QLineEdit *display;
