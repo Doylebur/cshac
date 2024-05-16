@@ -6,9 +6,6 @@
 #include <QString>
 #include <QScriptEngine>
 
-class Calcolatore : public QWidget {
-    Q_OBJECT
-public:
 
 private:
     QLineEdit *display;
