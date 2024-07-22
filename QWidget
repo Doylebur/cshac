@@ -6,13 +6,6 @@
 #include <QString>
 #include <QScriptEngine>
 
-
-private:
-    QLineEdit *display;
-
-    // Metodo per creare i pulsanti connessi al slot
-    QPushButton* createButton(const QString &text) {
-        QPushButton *button = new QPushButton(text);
         connect(button, SIGNAL(clicked()), this, SLOT(onButtonClicked()));
         return button;
     }
